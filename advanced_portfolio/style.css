@@ -1,0 +1,436 @@
+/* 
+   Advanced CSS Implementation (Experiments 04 & 05)
+   Developer: Nailah Khan
+*/
+
+/* Part 8: CSS Custom Properties */
+:root {
+    --primary-color: #6366f1;
+    --secondary-color: #a855f7;
+    --dark-bg: #0f172a;
+    --light-text: #f8fafc;
+    --gray-text: #94a3b8;
+    --card-bg: #1e293b;
+    --transition-speed: 0.3s;
+    --container-width: 1100px;
+}
+
+/* Base Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Part 3: CSS Animations - Animated Gradient Background */
+.bg-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #0f172a, #1e1b4b, #312e81, #0f172a);
+    background-size: 400% 400%;
+    z-index: -1;
+    animation: gradientBG 15s ease infinite;
+    opacity: 0.5;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Part 3: Navigation Bar Styling */
+header {
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+nav {
+    display: flex; /* Flexbox for alignment */
+    justify-content: space-between;
+    align-items: center;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 1rem 2rem;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: var(--primary-color);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+/* Part 1: Display Property - Navigation items to inline-block */
+nav ul li {
+    display: inline-block; 
+    margin-left: 2rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--gray-text);
+    font-weight: 600;
+    transition: color var(--transition-speed), background var(--transition-speed);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+}
+
+nav ul li a:hover {
+    color: var(--light-text);
+    background: rgba(99, 102, 241, 0.1);
+}
+
+nav ul li a.active {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+}
+
+/* Part 1: Overall Page Layout using CSS Grid */
+#main-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    max-width: var(--container-width);
+    margin: 6rem auto;
+    padding: 0 2rem;
+}
+
+/* Part 2: Linear Gradient & Gradient Text */
+.gradient-text {
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 70vh;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+/* Part 3: Keyframe Animations - Fade In & Slide In */
+.fade-in {
+    animation: fadeIn 1.5s ease-out;
+}
+
+.slide-in {
+    animation: slideIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateX(50px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+/* Part 2: Float Property */
+#profile-img {
+    width: 350px;
+    height: 350px;
+    border-radius: 20px;
+    object-fit: cover;
+    float: right; /* Floating the image */
+    margin-left: 2rem;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    transition: transform 0.5s ease;
+}
+
+#profile-img:hover {
+    transform: scale(1.05) rotate(2deg); /* Transform & Hover Animation */
+}
+
+/* Part 2: Overflow Property */
+.overflow-box {
+    width: 100%;
+    height: 150px;
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    overflow: auto; /* Demonstration of overflow auto */
+    margin-top: 1.5rem;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Part 4: Advanced Selectors - Pseudo-elements */
+.first-letter-styled::first-letter {
+    font-size: 3rem;
+    color: var(--primary-color);
+    font-weight: 700;
+    float: left;
+    margin-right: 0.5rem;
+    line-height: 1;
+}
+
+/* Part 5: Flexbox & Grid for Skills/Projects */
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60%;
+    height: 4px;
+    background: var(--primary-color);
+    border-radius: 2px;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+/* Part 2: Radial Gradient on Cards */
+.skill-card {
+    background: radial-gradient(circle at top right, rgba(99, 102, 241, 0.1), transparent), var(--card-bg);
+    padding: 2rem;
+    border-radius: 16px;
+    transition: transform var(--transition-speed);
+}
+
+.skill-card:hover {
+    transform: translateY(-10px);
+}
+
+/* Part 4: Advanced UI Components - Animated Progress Bars */
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #334155;
+    border-radius: 4px;
+    margin-top: 1rem;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    animation: fillProgress 2s ease-out forwards;
+}
+
+@keyframes fillProgress {
+    from { width: 0; }
+}
+
+/* Part 1 & Part 5: Projects Grid using CSS Grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Use of repeat and minmax */
+    gap: 2.5rem;
+}
+
+.project-card {
+    height: 250px;
+    background: #475569;
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Part 4: Image Hover Effects & Overlay */
+.project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(99, 102, 241, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    text-align: center;
+    transform: translateY(100%);
+    transition: transform var(--transition-speed) ease;
+}
+
+.project-card:hover .project-overlay {
+    transform: translateY(0);
+}
+
+/* Part 7: Pagination Component */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    gap: 1rem;
+}
+
+.page-link {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: var(--card-bg);
+    color: var(--light-text);
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background var(--transition-speed);
+}
+
+.page-link:hover, .page-link.active {
+    background: var(--primary-color);
+}
+
+/* Part 6: Form Styling */
+.contact-container {
+    background: var(--card-bg);
+    padding: 3rem;
+    border-radius: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--gray-text);
+}
+
+/* Attribute Selectors */
+input[type="text"], input[type="email"], textarea {
+    width: 100%;
+    padding: 1rem;
+    background: var(--dark-bg);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    color: var(--light-text);
+    font-family: inherit;
+    transition: border-color var(--transition-speed);
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary-color); /* Change border on focus */
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.2s, opacity 0.2s;
+    cursor: pointer;
+    border: none;
+}
+
+.btn.primary {
+    background: var(--primary-color);
+    color: white;
+}
+
+.btn.secondary {
+    background: rgba(255,255,255,0.1);
+    color: white;
+    margin-left: 1rem;
+}
+
+.btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+/* JS Interaction Panel Styling */
+.interaction-card {
+    background: var(--card-bg);
+    padding: 3rem;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.interaction-card p {
+    margin-bottom: 2rem;
+    color: var(--gray-text);
+}
+
+.interaction-card .button-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+/* Part 9: Responsive Design using Media Queries */
+@media (max-width: 992px) {
+    :root { --container-width: 90%; }
+    .hero { flex-direction: column; text-align: center; }
+    #profile-img { float: none; margin: 2rem 0 0 0; width: 300px; height: 300px; }
+    .hero-content h1 { font-size: 3rem; }
+}
+
+@media (max-width: 768px) {
+    /* Stack navigation vertically on small screens */
+    nav { flex-direction: column; gap: 1rem; }
+    nav ul { flex-direction: column; text-align: center; }
+    nav ul li { margin: 0.5rem 0; }
+    
+    .hero-content h1 { font-size: 2.5rem; }
+    .projects-grid { grid-template-columns: 1fr; } /* Single column cards on mobile */
+    .skills-grid { grid-template-columns: 1fr; }
+}
+
+footer {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: rgba(0,0,0,0.2);
+    margin-top: 4rem;
+}
+
+footer p {
+    color: var(--gray-text);
+    font-size: 0.9rem;
+}

@@ -1,0 +1,36 @@
+body {
+    text-align: center;
+    font-family: Arial;
+    margin-top: 100px;
+}
+
+#counter {
+    font-size: 50px;
+    margin: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    color: white;
+}
+
+.inc {
+    background-color: #28a745;
+}
+
+.dec {
+    background-color: #dc3545;
+}
+
+.reset {
+    background-color: #ffc107;
+    color: black;
+}
+
+.buttons {
+    margin-top: 20px;
+}

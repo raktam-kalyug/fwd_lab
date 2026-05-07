@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Personal Portfolio | Modern Design</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for premium typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Animated Background Overlay -->
+    <div class="bg-animation"></div>
+
+    <header>
+        <nav>
+            <div class="logo">Dev<span>Folio</span></div>
+            <ul>
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#interactions">Interactions</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-grid">
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content fade-in">
+                <h1>Hi, I'm <span class="gradient-text">Your Name</span></h1>
+                <p>Crafting high-performance, visually stunning web experiences.</p>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn primary">View Work</a>
+                    <a href="#contact" class="btn secondary">Hire Me</a>
+                </div>
+            </div>
+            <div class="hero-image slide-in">
+                <img src="profile.png" alt="Profile Photo" id="profile-img">
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-container">
+                <div class="about-text">
+                    <p class="first-letter-styled">I am a passionate web developer with expertise in modern CSS techniques, including Grid, Flexbox, and complex animations. My goal is to build accessible and beautiful digital products.</p>
+                    <div class="overflow-demo">
+                        <div class="overflow-box">
+                            <p>This box demonstrates <strong>CSS Overflow</strong>. You can scroll through this content to see how it handles large amounts of text within a fixed-size container. We are using <code>overflow: auto</code> here to provide a smooth user experience. This is a key part of Advanced CSS Implementation Lab.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section (Flexbox & Progress Bars) -->
+        <section id="skills" class="section">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>HTML5 & CSS3</h3>
+                    <div class="progress-bar"><div class="progress" style="width: 95%;"></div></div>
+                </div>
+                <div class="skill-card">
+                    <h3>JavaScript (ES6+)</h3>
+                    <div class="progress-bar"><div class="progress" style="width: 85%;"></div></div>
+                </div>
+                <div class="skill-card">
+                    <h3>React & Next.js</h3>
+                    <div class="progress-bar"><div class="progress" style="width: 80%;"></div></div>
+                </div>
+                <div class="skill-card">
+                    <h3>UI/UX Design</h3>
+                    <div class="progress-bar"><div class="progress" style="width: 75%;"></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Gallery (CSS Grid) -->
+        <section id="projects" class="section">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-overlay">
+                        <h3>E-Commerce Platform</h3>
+                        <p>Modern shopping experience with Grid layout.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-overlay">
+                        <h3>Weather Dashboard</h3>
+                        <p>Real-time data visualization using API integration.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-overlay">
+                        <h3>Social Connect</h3>
+                        <p>A full-stack social networking application.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pagination Component -->
+            <div class="pagination">
+                <a href="#" class="page-link active">1</a>
+                <a href="#" class="page-link">2</a>
+                <a href="#" class="page-link">3</a>
+                <a href="#" class="page-link">Next &raquo;</a>
+            </div>
+        </section>
+
+        <!-- Contact Section (Form Styling) -->
+        <section id="contact" class="section">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-container">
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Your Message"></textarea>
+                    </div>
+                    <button type="submit" class="btn primary">Send Message</button>
+                </form>
+            </div>
+        <!-- Interactive JS Panel (Integrated from original Portfolio) -->
+        <section id="interactions" class="section">
+            <h2 class="section-title">JS Interaction Panel</h2>
+            <div class="interaction-card">
+                <p>Test various JavaScript logic and interactions directly here.</p>
+                <div class="button-group">
+                    <button id="welcome-btn" class="btn primary">Welcome & Hoisting</button>
+                    <button id="quiz-btn" class="btn primary">Start Quiz</button>
+                    <button id="skills-btn" class="btn primary">Enter Skills</button>
+                    <button id="grade-btn" class="btn primary">Check Grade</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 All rights reserved.</p>
+        <p>Built for Fundamentals of Web Design Laboratory.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
